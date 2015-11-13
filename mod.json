@@ -1,0 +1,7 @@
+{
+    "BaseDir": "",
+    "EntryPoint": "AutoSave.Main",
+    "IsDevelopment": false,
+    "Name": "AutoSave",
+    "Project": "AutoSave.csproj"
+}
