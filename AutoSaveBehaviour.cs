@@ -25,7 +25,7 @@ namespace AutoSave
                 GameController.Instance.saveGame("Saves/Savegames/AutoSave-" + GameController.Instance.park.parkName + ".txt");
                 Debug.Log("Finished autosaving.");
 
-                yield return new WaitForSeconds(20);
+                yield return new WaitForSeconds(300);
             }
         }
     }
