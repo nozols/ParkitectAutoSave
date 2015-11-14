@@ -13,9 +13,16 @@ namespace AutoSave
             StartCoroutine("AutoSave");
         }
 
-        public void onGUI() {
+        public void OnGUI() {
             if (GameController.Instance.isSavingGame) {
-                GUI.Label(new Rect(Screen.width - 110, 10, 100, 100), "Autosaving game");
+                GUI.Label(new Rect(Screen.width - 110, 10, 100, 100), "Saving game");
+            }
+        }
+        public void Update() {
+            if (Input.GetKeyUp(KeyCode.F5)) {
+                Debug.Log("Quicksaving game.");
+                GameController.Instance.saveGame("Saves/Savegames/QuickSave-" + GameController.Instance.park.parkName + ".txt");
+                Debug.Log("Finsihed quicksaving");
             }
         }
 
@@ -25,7 +32,7 @@ namespace AutoSave
                 GameController.Instance.saveGame("Saves/Savegames/AutoSave-" + GameController.Instance.park.parkName + ".txt");
                 Debug.Log("Finished autosaving.");
 
-                yield return new WaitForSeconds(20);
+                yield return new WaitForSeconds(300);
             }
         }
     }
