@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Parkitect.UI;
+using System;
 
 namespace AutoSave
 {
@@ -18,22 +20,28 @@ namespace AutoSave
                 GUI.Label(new Rect(Screen.width - 110, 10, 100, 100), "Saving game");
             }
         }
-        public void Update() {
+        public void Update() {        
             if (Input.GetKeyUp(KeyCode.F5)) {
-                Debug.Log("Quicksaving game.");
-                GameController.Instance.saveGame("Saves/Savegames/QuickSave-" + GameController.Instance.park.parkName + ".txt");
-                Debug.Log("Finsihed quicksaving");
+                CustomSaveGame("QuickSave");  
             }
         }
 
         private IEnumerator AutoSave() {
             for (;;) {
-                Debug.Log("Autosaving game.");
-                GameController.Instance.saveGame("Saves/Savegames/AutoSave-" + GameController.Instance.park.parkName + ".txt");
-                Debug.Log("Finished autosaving.");
+                CustomSaveGame("AutoSave");
 
                 yield return new WaitForSeconds(300);
             }
+        }
+
+        private void CustomSaveGame(string aoq) {
+            string s = GameController.Instance.loadedSavegamePath;
+
+            GameController.Instance.saveGame("Saves/Savegames/" + aoq + "-" + GameController.Instance.park.parkName + ".txt");
+
+            Type type = GameController.Instance.GetType();
+            System.Reflection.PropertyInfo propertyInfo = type.GetProperty("loadedSavegamePath");
+            propertyInfo.SetValue(GameController.Instance, s, null);
         }
     }
 }
