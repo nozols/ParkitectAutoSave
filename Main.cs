@@ -2,7 +2,6 @@
 
 namespace AutoSave
 {
-
     public class Main : IMod
     {
         private GameObject __go;

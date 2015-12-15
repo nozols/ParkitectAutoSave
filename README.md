@@ -1,6 +1,3 @@
-# AutoSave
+# Your First Mod
 
-This mod adds a autosave and quicksave feature to parkitect.
-Press F5 to quicksave.
-Autosave is saved to "AutoSave-{parkname}.txt"
-Quicksave is saved to "QuickSave-{parkname}.txt"
+In this `readme` you can explain what your mod has to offer.
