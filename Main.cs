@@ -32,5 +32,7 @@ namespace AutoSave
             __go = new GameObject();
             __go.AddComponent<AutoSaveBehaviour>();
         }
+
+        public string Identifier { get; set; }
     }
 }
