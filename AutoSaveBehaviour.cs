@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AutoSave
 {
-    class AutoSaveBehaviour : MonoBehaviour
+    public class AutoSaveBehaviour : MonoBehaviour
     {
         public void Start()
         {
@@ -29,7 +29,7 @@ namespace AutoSave
             {
                 CustomSaveGame("AutoSave");
 
-                yield return new WaitForSeconds(300);
+                yield return new WaitForSeconds(Main._timeInterval);
             }
         }
         
